@@ -9,6 +9,7 @@ const display = document.getElementById("display");
 const startStopButton = document.getElementById("startStop");
 const resetButton = document.getElementById("reset");
 const tiempoSelect = document.getElementById("tiempo");
+const cronometroSection = document.querySelector(".cronometro");
 
 tiempoSelect.addEventListener("change", () => {
     selectedTime = parseInt(tiempoSelect.value);
@@ -79,5 +80,15 @@ startStopButton.addEventListener("click", function () {
         startStopButton.textContent = "Detener";
         // Aquí puedes agregar la lógica para iniciar el cronómetro
         isRunning = true;
+    }
+});
+
+tiempoSelect.addEventListener("change", function () {
+    if (tiempoSelect.value === "") {
+        // Si no se ha seleccionado un tiempo, oculta el cronómetro
+        cronometroSection.style.display = "none";
+    } else {
+        // Si se selecciona un tiempo, muestra el cronómetro
+        cronometroSection.style.display = "block";
     }
 });
