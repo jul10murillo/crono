@@ -1,6 +1,6 @@
 // Variables
 let timer = 0;
-let running = false;
+let running = true;
 
 // Función para iniciar el cronómetro
 function start() {
