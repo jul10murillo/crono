@@ -1,5 +1,6 @@
 // script.js
 let running = false;
+let startTime = null;
 let interval;
 
 const display = document.getElementById("display");
@@ -12,6 +13,7 @@ function resetTimer() {
     startStopButton.textContent = "Iniciar";
     startStopButton.classList.remove("running");
     display.textContent = "00:00:00.000";
+    startTime = null; // Restablecer startTime a null
 }
 
 resetButton.addEventListener("click", () => {
@@ -20,30 +22,19 @@ resetButton.addEventListener("click", () => {
 
 startStopButton.addEventListener("click", () => {
     if (!running) {
+        if (startTime === null) {
+            startTime = Date.now();
+        } else {
+            const currentTime = Date.now() - (Date.now() - startTime);
+            startTime = Date.now() - currentTime;
+        }
         startStopButton.textContent = "Detener";
         startStopButton.classList.add("running");
-        const currentTime = display.textContent.split(":");
-        const hours = parseInt(currentTime[0]);
-        const minutes = parseInt(currentTime[1]);
-        const seconds = parseInt(currentTime[2]);
-        const milliseconds = parseInt(currentTime[3]);
-        const totalMilliseconds =
-            hours * 3600000 + minutes * 60000 + seconds * 1000 + milliseconds;
-        const startTime = Date.now() - totalMilliseconds;
         interval = setInterval(updateDisplay, 10);
     } else {
         clearInterval(interval);
     }
     running = !running;
-});
-
-resetButton.addEventListener("click", () => {
-    startStopButton.textContent = "Iniciar";
-    startStopButton.classList.remove("running");
-    clearInterval(interval);
-    running = false;
-    display.textContent = "00:00:00.000";
-    startTime = Date.now(); // Reiniciar startTime a la marca de tiempo actual
 });
 
 function updateDisplay() {
