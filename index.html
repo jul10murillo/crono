@@ -1,10 +1,11 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>Cronómetro Web</title>
+    <title>Cronómetro</title>
 </head>
 <body>
     <div class="container">
@@ -14,10 +15,12 @@
             <button id="startStop">Iniciar</button>
             <button id="reset">Reiniciar</button>
         </div>
-        <div class="logos">
-            <img src="logo1.png" alt="Logo 1">
-            <img src="logo2.png" alt="Logo 2">
-            <!-- Agrega más logos aquí -->
+        <div class="opciones">
+            <label for="tiempo">Selecciona el tiempo:</label>
+            <select id="tiempo">
+                <option value="600">10 minutos</option>
+                <option value="1200">20 minutos</option>
+            </select>
         </div>
     </div>
     <script src="script.js"></script>
