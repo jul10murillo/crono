@@ -13,7 +13,7 @@ function resetTimer() {
     startStopButton.textContent = "Iniciar";
     startStopButton.classList.remove("running");
     display.textContent = "00:00:00.000";
-    startTime = null; // Restablecer startTime a null
+    startTime = null;
 }
 
 resetButton.addEventListener("click", () => {
@@ -24,9 +24,6 @@ startStopButton.addEventListener("click", () => {
     if (!running) {
         if (startTime === null) {
             startTime = Date.now();
-        } else {
-            const currentTime = Date.now() - (Date.now() - startTime);
-            startTime = Date.now() - currentTime;
         }
         startStopButton.textContent = "Detener";
         startStopButton.classList.add("running");
