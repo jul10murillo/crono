@@ -65,3 +65,19 @@ function formatTime(time) {
 }
 
 resetTimer(); // Iniciar con el tiempo seleccionado por defecto
+
+let isRunning = false;
+
+startStopButton.addEventListener("click", function () {
+    if (isRunning) {
+        // Si el cronómetro está en marcha, cambia el texto del botón a "Iniciar"
+        startStopButton.textContent = "Iniciar";
+        // Aquí puedes agregar la lógica para detener el cronómetro
+        isRunning = false;
+    } else {
+        // Si el cronómetro está detenido, cambia el texto del botón a "Detener"
+        startStopButton.textContent = "Detener";
+        // Aquí puedes agregar la lógica para iniciar el cronómetro
+        isRunning = true;
+    }
+});
