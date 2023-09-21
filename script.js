@@ -2,7 +2,8 @@
 let running = false;
 let startTime = null;
 let interval;
-let selectedTime = 0; // Variable para almacenar el tiempo seleccionado
+let selectedTime = 0; // Variable para almacenar el tiempo seleccionado en segundos
+let currentTime = 0; // Variable para almacenar el tiempo transcurrido en segundos
 
 const display = document.getElementById("display");
 const startStopButton = document.getElementById("startStop");
@@ -19,7 +20,8 @@ function resetTimer() {
     running = false;
     startStopButton.textContent = "Iniciar";
     startStopButton.classList.remove("running");
-    display.textContent = formatTime(selectedTime); // Mostrar el tiempo seleccionado
+    currentTime = selectedTime; // Establecer el tiempo actual al seleccionado
+    display.textContent = formatTime(currentTime);
     startTime = null;
 }
 
@@ -30,7 +32,7 @@ resetButton.addEventListener("click", () => {
 startStopButton.addEventListener("click", () => {
     if (!running) {
         if (startTime === null) {
-            startTime = Date.now() - (selectedTime * 1000); // Iniciar desde el tiempo seleccionado
+            startTime = Date.now();
         }
         startStopButton.textContent = "Detener";
         startStopButton.classList.add("running");
@@ -42,25 +44,24 @@ startStopButton.addEventListener("click", () => {
 });
 
 function updateDisplay() {
-    const currentTime = new Date(Date.now() - startTime);
-    const timeRemaining = Math.max(selectedTime * 1000 - currentTime.getTime(), 0);
+    const elapsedTime = Math.floor((Date.now() - startTime) / 1000); // Tiempo transcurrido en segundos
+    currentTime = selectedTime - elapsedTime; // Tiempo restante en segundos
 
-    if (timeRemaining === 0) {
+    if (currentTime <= 0) {
         // Mostrar mensaje al finalizar el tiempo
+        currentTime = 0;
         display.textContent = "Tiempo terminado";
         clearInterval(interval);
     } else {
-        display.textContent = formatTime(timeRemaining);
+        display.textContent = formatTime(currentTime);
     }
 }
 
 function formatTime(time) {
-    const date = new Date(time);
-    const hours = String(date.getUTCHours()).padStart(2, "0");
-    const minutes = String(date.getUTCMinutes()).padStart(2, "0");
-    const seconds = String(date.getUTCSeconds()).padStart(2, "0");
-    const milliseconds = String(date.getUTCMilliseconds()).padStart(3, "0");
-    return `${hours}:${minutes}:${seconds}.${milliseconds}`;
+    const hours = String(Math.floor(time / 3600)).padStart(2, "0");
+    const minutes = String(Math.floor((time % 3600) / 60)).padStart(2, "0");
+    const seconds = String(time % 60).padStart(2, "0");
+    return `${hours}:${minutes}:${seconds}`;
 }
 
 resetTimer(); // Iniciar con el tiempo seleccionado por defecto
