@@ -27,6 +27,26 @@
         .opciones {
             text-align: center;
         }
+
+        /* Aplica un fondo azul al lado izquierdo */
+        .lado-izquierdo {
+            background-color: rgb(63,81,181);
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* Estilos para el card del cronómetro y la explicación breve */
+        .cronometro-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .explicacion {
+            font-size: 16px;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -37,24 +57,18 @@
     </header>
     <main class="mdl-layout__content">
         <div class="mdl-grid">
-            <!-- Columna Izquierda -->
-            <div class="mdl-cell mdl-cell--6-col" style="background-color: blue;">
+            <!-- Columna Izquierda con fondo azul -->
+            <div class="mdl-cell mdl-cell--6-col lado-izquierdo">
                 <div class="logo-container">
                     <img src="https://via.placeholder.com/150" alt="Logo 1" class="logo">
                     <img src="https://via.placeholder.com/150" alt="Logo 2" class="logo">
                     <!-- Agrega más logotipos según sea necesario, reemplazando las URL ficticias -->
                 </div>
             </div>
-            <!-- Columna Derecha -->
+            <!-- Columna Derecha con fondo blanco (opciones y card del cronómetro) -->
             <div class="mdl-cell mdl-cell--6-col">
                 <div class="container">
                     <div class="cronometro-container">
-                        <div class="cronometro">
-                            <h2>Cronómetro</h2>
-                            <div id="display" class="mdl-typography--display-3">00:00:00</div>
-                            <button id="startStop" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Iniciar</button>
-                            <button id="reset" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Reiniciar</button>
-                        </div>
                         <div class="opciones">
                             <label for="tiempo">Selecciona el tiempo:</label>
                             <select id="tiempo" class="mdl-textfield__input">
@@ -62,6 +76,17 @@
                                 <option value="600">10 minutos</option>
                                 <option value="1200">20 minutos</option>
                             </select>
+                        </div>
+                        <!-- Card del cronómetro -->
+                        <div class="cronometro-card">
+                            <h2>Cronómetro</h2>
+                            <div id="display" class="mdl-typography--display-3">00:00:00</div>
+                            <button id="startStop" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Iniciar</button>
+                            <button id="reset" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Reiniciar</button>
+                            <!-- Explicación breve -->
+                            <div class="explicacion">
+                                El cronómetro te permite medir el tiempo de forma precisa. ¡Selecciona una opción y comienza a medir!
+                            </div>
                         </div>
                     </div>
                 </div>
