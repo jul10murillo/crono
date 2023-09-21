@@ -17,6 +17,16 @@
             height: auto;
             margin: 20px;
         }
+        .cronometro-container {
+            text-align: center;
+        }
+        .cronometro {
+            display: inline-block;
+            text-align: left;
+        }
+        .opciones {
+            text-align: center;
+        }
     </style>
 </head>
 <body class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -38,19 +48,21 @@
             <!-- Columna Derecha -->
             <div class="mdl-cell mdl-cell--6-col">
                 <div class="container">
-                    <div class="cronometro">
-                        <h2>Cronómetro</h2>
-                        <div id="display" class="mdl-typography--display-3">00:00:00</div>
-                        <button id="startStop" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Iniciar</button>
-                        <button id="reset" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Reiniciar</button>
-                    </div>
-                    <div class="opciones">
-                        <label for="tiempo">Selecciona el tiempo:</label>
-                        <select id="tiempo" class="mdl-textfield__input">
-                            <option value="" disabled selected>Selecciona el tiempo</option>
-                            <option value="600">10 minutos</option>
-                            <option value="1200">20 minutos</option>
-                        </select>
+                    <div class="cronometro-container">
+                        <div class="cronometro">
+                            <h2>Cronómetro</h2>
+                            <div id="display" class="mdl-typography--display-3">00:00:00</div>
+                            <button id="startStop" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Iniciar</button>
+                            <button id="reset" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Reiniciar</button>
+                        </div>
+                        <div class="opciones">
+                            <label for="tiempo">Selecciona el tiempo:</label>
+                            <select id="tiempo" class="mdl-textfield__input">
+                                <option value="" disabled selected>Selecciona el tiempo</option>
+                                <option value="600">10 minutos</option>
+                                <option value="1200">20 minutos</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
