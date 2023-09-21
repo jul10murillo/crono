@@ -1,6 +1,6 @@
 // script.js
 let running = false;
-let startTime;
+let startTime = null;
 let interval;
 
 const display = document.getElementById("display");
@@ -26,12 +26,12 @@ resetButton.addEventListener("click", () => {
     startStopButton.classList.remove("running");
     clearInterval(interval);
     running = false;
-    display.textContent = "00:00:00";
+    display.textContent = "00:00:00.000";
     startTime = null;
 });
 
 function updateDisplay() {
-    const currentTime = new Date(Date.now() - startTime);
+    const currentTime = new Date(Date.now() - (startTime ? startTime : 0));
     const hours = String(currentTime.getUTCHours()).padStart(2, "0");
     const minutes = String(currentTime.getUTCMinutes()).padStart(2, "0");
     const seconds = String(currentTime.getUTCSeconds()).padStart(2, "0");
