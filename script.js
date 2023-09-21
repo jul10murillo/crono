@@ -37,6 +37,18 @@ startStopButton.addEventListener("click", () => {
     running = !running;
 });
 
+<<<<<<< HEAD
+=======
+resetButton.addEventListener("click", () => {
+    startStopButton.textContent = "Iniciar";
+    startStopButton.classList.remove("running");
+    clearInterval(interval);
+    running = false;
+    display.textContent = "00:00:00.000";
+    startTime = Date.now(); // Reiniciar startTime a la marca de tiempo actual
+});
+
+>>>>>>> master
 function updateDisplay() {
     const currentTime = new Date(Date.now() - startTime);
     const hours = String(currentTime.getUTCHours()).padStart(2, "0");
