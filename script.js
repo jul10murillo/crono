@@ -23,7 +23,7 @@ function reset() {
 function updateTimer() {
   let minutes = Math.floor(timer / 60);
   let seconds = Math.floor((timer % 60) / 10);
-  let milliseconds = timer % 10;
+  let milliseconds = Math.round(timer % 10);
 
   // Actualizamos la interfaz de usuario
   document.querySelector(".timer h1").textContent = `${minutes}:${seconds}:${milliseconds}`;
