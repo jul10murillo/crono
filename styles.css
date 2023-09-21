@@ -1,0 +1,19 @@
+/* styles.css */
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.cronometro {
+    text-align: center;
+}
+
+.logos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Estilos adicionales según tus preferencias */
