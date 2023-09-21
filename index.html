@@ -27,6 +27,13 @@
         .opciones {
             text-align: center;
         }
+
+        /* Agrega un fondo azul al lado izquierdo de la página */
+        .lado-izquierdo {
+            background-color: blue;
+            padding: 20px;
+            min-height: 100vh;
+        }
     </style>
 </head>
 <body class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
@@ -38,7 +45,7 @@
     <main class="mdl-layout__content">
         <div class="mdl-grid">
             <!-- Columna Izquierda -->
-            <div class="mdl-cell mdl-cell--6-col">
+            <div class="mdl-cell mdl-cell--6-col lado-izquierdo">
                 <div class="logo-container">
                     <img src="https://via.placeholder.com/150" alt="Logo 1" class="logo">
                     <img src="https://via.placeholder.com/150" alt="Logo 2" class="logo">
@@ -49,12 +56,6 @@
             <div class="mdl-cell mdl-cell--6-col">
                 <div class="container">
                     <div class="cronometro-container">
-                        <div class="cronometro">
-                            <h2>Cronómetro</h2>
-                            <div id="display" class="mdl-typography--display-3">00:00:00</div>
-                            <button id="startStop" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Iniciar</button>
-                            <button id="reset" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Reiniciar</button>
-                        </div>
                         <div class="opciones">
                             <label for="tiempo">Selecciona el tiempo:</label>
                             <select id="tiempo" class="mdl-textfield__input">
@@ -62,6 +63,12 @@
                                 <option value="600">10 minutos</option>
                                 <option value="1200">20 minutos</option>
                             </select>
+                        </div>
+                        <div class="cronometro">
+                            <h2>Cronómetro</h2>
+                            <div id="display" class="mdl-typography--display-3">00:00:00</div>
+                            <button id="startStop" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">Iniciar</button>
+                            <button id="reset" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">Reiniciar</button>
                         </div>
                     </div>
                 </div>
